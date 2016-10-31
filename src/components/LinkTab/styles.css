@@ -1,0 +1,50 @@
+.button {
+  display: block;
+  padding: 12px 4px;
+  border-top: 1px solid var(--dark-gray);
+  color: var(--gray);
+  font: 16px/1.5 asul, arials, sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+  transition: all 0.2s ease-in-out;
+}
+
+.activeButton {
+  color: var(--light-red) !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .5), 0 0 12px var(--light-red);
+  border-color: var(--light-red);
+}
+
+.lastButton {
+  border-left: 0;
+}
+
+.changedButton:not(.activeButton) {
+  color: white;
+  animation: glow 2s linear infinite;
+}
+
+@media (min-width: 600px) {
+  .button {
+    border-top: 0;
+    border-bottom: 1px solid var(--dark-gray);
+  }
+
+  .activeButton {
+    border-color: var(--light-red);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(243, 230, 208, 0);
+  }
+  50% {
+    text-shadow: 0 0 5px rgba(243, 230, 208, 1);
+  }
+}

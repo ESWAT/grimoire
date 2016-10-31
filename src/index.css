@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--black);
+  font: 16px/1.5 asul, arial, sans-serif;
+  color: var(--near-white);
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  webkit-tap-highlight-color: transparent;
+}

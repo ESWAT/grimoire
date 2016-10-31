@@ -1,0 +1,25 @@
+.body {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--near-black);
+  z-index: 2;
+}
+
+@media (min-width: 600px) {
+  .body {
+    position: static;
+    max-width: 600px;
+    margin: 0 auto 24px;
+  }
+}
+
+.ul {
+  list-style: none;
+  display: flex;
+}
+
+.li {
+  width: 100%;
+}

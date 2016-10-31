@@ -1,0 +1,28 @@
+.body {
+  margin: 12px;
+}
+
+.button {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 4px 6px;
+  margin-bottom: 12px;
+  border: 1px solid var(--dark-gray);
+  border-radius: 1px;
+  background: var(--near-black);
+  color: var(--light-red);
+  font: 16px/1.5 asul, arials, sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: all 1s ease-in;
+}
+
+.button:disabled {
+  opacity: .4;
+}

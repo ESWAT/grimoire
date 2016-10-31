@@ -1,0 +1,68 @@
+.body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 5;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.close {
+  z-index: 10;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  padding: 0;
+  border: 1px solid var(--black);
+  background: #000;
+  color: var(--gray);
+  font: 24px/22px asul, arials, sans-serif;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.wrap {
+  position: relative;
+  padding: 24px;
+  z-index: 9;
+  margin-top: 50px;
+  width: 300px;
+  background: #000;
+  border: 1px solid var(--black);
+}
+
+.enter {
+  transition: all 205ms ease-in;
+  opacity: 0;
+}
+
+.enterActive {
+  opacity: 1;
+}
+
+.leave {
+  transition: all 250ms ease-out;
+  opacity: 1;
+}
+
+.leaveActive {
+  opacity: 0;
+}

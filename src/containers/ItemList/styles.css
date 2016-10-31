@@ -1,0 +1,7 @@
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 12px;
+  margin-bottom: 24px;
+}

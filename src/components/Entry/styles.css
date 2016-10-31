@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  cursor: pointer;
+}
+
+.content {
+  margin-left: 12px;
+}
+
+.date {
+  white-space: nowrap;
+}
+
+.heading,
+.type {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray);
+}
