@@ -6,6 +6,7 @@
   margin-bottom: 24px;
   opacity: 0;
   animation: appear .3s linear 250ms 1 forwards;
+  width: 128px;
 }
 
 .title {

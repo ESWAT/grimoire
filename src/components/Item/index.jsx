@@ -21,7 +21,7 @@ const Item = (props) => {
 
   return (
     <button className={styles.body} onClick={props.handleClick}>
-      <img className={iconClassName} src={image} width={props.item.width * 0.5} />
+      <img className={iconClassName} src={image} />
     </button>
   );
 };

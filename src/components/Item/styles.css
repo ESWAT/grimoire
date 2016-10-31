@@ -22,7 +22,7 @@
   opacity: 0.2;
   position: relative;
   transition: transform 0.2s ease-in-out;
-  fill: white;
+  width: 64px;
 }
 
 .owned {

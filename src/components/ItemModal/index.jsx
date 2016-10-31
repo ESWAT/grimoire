@@ -28,7 +28,7 @@ const ItemModal = (props) => {
 
   return (
     <div className={styles.body}>
-      <img className={styles.icon} src={image} width={props.item.width} />
+      <img className={styles.icon} src={image} />
       <p className={titleClassName}>{props.item.name}</p>
       {props.item.quote ? <p className={styles.quote}>{props.item.quote}</p> : null}
     </div>
