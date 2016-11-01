@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.css';
 
-const Credits = () => {
+const CreditsModal = (props) => {
   return (
     <div>
       <p>Created by <a className={styles.link} href="https://eswat.ca/">Philip Karpiak</a></p>
@@ -10,4 +10,4 @@ const Credits = () => {
   );
 };
 
-export default Credits;
+export default CreditsModal;
