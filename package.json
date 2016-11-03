@@ -4,8 +4,8 @@
   "private": true,
   "description": "A gratitude journal RPG",
   "scripts": {
-    "start": "webpack-dashboard -- node server.js",
-    "build": "webpack --optimize-minimize --config webpack.prod.config.js",
+    "start": "webpack-dashboard -- webpack-dev-server --config webpack.dev.config.babel.js --port 3000 --content-base src --hot --inline --quiet --history-api-fallback --client-log-level error",
+    "build": "webpack --optimize-minimize --config webpack.prod.config.babel.js",
     "shipit": "webpack --optimize-minimize --config webpack.prod.config.js && firebase deploy",
     "bundle-analyze": "webpack --json --config webpack.prod.config.js | webpack-bundle-size-analyzer",
     "lint": "eslint src"

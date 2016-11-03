@@ -1,13 +1,14 @@
-const {join} = require('path');
-const webpack = require('webpack');
-const Clean = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
-const htmlConf = require('./html.conf');
+import {join} from 'path';
+import webpack from 'webpack';
+import Clean from 'clean-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import OfflinePlugin from 'offline-plugin';
+import htmlConf from './html.conf';
+
 const src = join(__dirname, 'src');
 const dist = join(__dirname, 'dist');
 
-module.exports = {
+export default {
   entry: {
     app: [
       'tachyons-colors/src/tachyons-colors.css',

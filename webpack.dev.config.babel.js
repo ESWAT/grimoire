@@ -1,20 +1,19 @@
-const {join} = require('path');
-const webpack = require('webpack');
-const WebpackNotifierPlugin = require('webpack-notifier');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HappyPack = require('happypack');
-const happyThreadPool = HappyPack.ThreadPool({size: 6});
-const DashboardPlugin = require('webpack-dashboard/plugin');
-const htmlConf = require('./html.conf');
-const src = join(__dirname, 'src');
+import {join} from 'path';
+import webpack from 'webpack';
+import WebpackNotifierPlugin from 'webpack-notifier';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import HappyPack from 'happypack';
+import DashboardPlugin from 'webpack-dashboard/plugin';
+import htmlConf from './html.conf';
 
-module.exports = {
+const src = join(__dirname, 'src');
+const happyThreadPool = HappyPack.ThreadPool({size: 6});
+
+export default {
   devtool: 'source-map',
   entry: {
     app: [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
       'tachyons-colors/src/tachyons-colors.css',
       './src/index',
     ],
@@ -51,7 +50,6 @@ module.exports = {
     }),
     new HtmlWebpackPlugin(htmlConf),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity,
