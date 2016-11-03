@@ -12,6 +12,7 @@ const propTypes = {
 };
 
 const Item = (props) => {
+  // eslint-disable-next-line prefer-template
   const image = require('~/images/items/' + props.item.id + '.svg');
   const iconClassName = cx({
     icon: true,

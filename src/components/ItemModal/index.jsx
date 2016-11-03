@@ -9,6 +9,7 @@ const propTypes = {
 };
 
 const ItemModal = (props) => {
+  // eslint-disable-next-line prefer-template
   const image = require('~/images/items/' + props.item.id + '.svg');
   const rarityStyle = (rarity) => {
     switch (rarity) {
