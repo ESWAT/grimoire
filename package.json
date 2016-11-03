@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dashboard -- webpack-dev-server --config webpack.dev.config.babel.js --port 3000 --content-base src --hot --inline --quiet --history-api-fallback --client-log-level error",
     "build": "webpack --optimize-minimize --config webpack.prod.config.babel.js",
-    "shipit": "webpack --optimize-minimize --config webpack.prod.config.js && firebase deploy",
-    "bundle-analyze": "webpack --json --config webpack.prod.config.js | webpack-bundle-size-analyzer",
+    "shipit": "webpack --optimize-minimize --config webpack.prod.config.babel.js && firebase deploy",
+    "bundle-analyze": "webpack --json --config webpack.prod.config.babel.js | webpack-bundle-size-analyzer",
     "lint": "eslint ."
   },
   "author": "Philip Karpiak <philip@eswat.ca> (http://github.com/eswat)",
