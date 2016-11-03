@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const Clean = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const htmlConf = require('./html.conf');
 const src = join(__dirname, 'src');
 const dist = join(__dirname, 'dist');
 
@@ -31,19 +32,7 @@ module.exports = {
     new Clean(['dist'], {verbose: false}),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new HtmlWebpackPlugin({
-      inject: false,
-      template: require('html-webpack-template'),
-      title: 'Grimoire',
-      appMountId: 'root',
-      mobile: true,
-      meta: {
-        'apple-mobile-web-app-capable': 'yes',
-      },
-      links: [
-        'https://fonts.googleapis.com/css?family=Asul:400',
-      ],
-    }),
+    new HtmlWebpackPlugin(htmlConf),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,

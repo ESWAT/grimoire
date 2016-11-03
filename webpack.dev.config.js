@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HappyPack = require('happypack');
 const happyThreadPool = HappyPack.ThreadPool({size: 6});
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const htmlConf = require('./html.conf');
 const src = join(__dirname, 'src');
 
 module.exports = {
@@ -48,19 +49,7 @@ module.exports = {
       loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'postcss'],
       threadPool: happyThreadPool,
     }),
-    new HtmlWebpackPlugin({
-      inject: false,
-      template: require('html-webpack-template'),
-      title: 'Grimoire',
-      appMountId: 'root',
-      mobile: true,
-      meta: {
-        'apple-mobile-web-app-capable': 'yes',
-      },
-      links: [
-        'https://fonts.googleapis.com/css?family=Asul:400',
-      ],
-    }),
+    new HtmlWebpackPlugin(htmlConf),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
