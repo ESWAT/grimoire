@@ -8,7 +8,7 @@
     "build": "webpack --optimize-minimize --config webpack.prod.config.babel.js",
     "shipit": "webpack --optimize-minimize --config webpack.prod.config.js && firebase deploy",
     "bundle-analyze": "webpack --json --config webpack.prod.config.js | webpack-bundle-size-analyzer",
-    "lint": "eslint src"
+    "lint": "eslint ."
   },
   "author": "Philip Karpiak <philip@eswat.ca> (http://github.com/eswat)",
   "devDependencies": {

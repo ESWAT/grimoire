@@ -7,6 +7,7 @@ import DashboardPlugin from 'webpack-dashboard/plugin';
 import htmlConf from './html.conf';
 
 const src = join(__dirname, 'src');
+// eslint-disable-next-line new-cap
 const happyThreadPool = HappyPack.ThreadPool({size: 6});
 
 export default {
