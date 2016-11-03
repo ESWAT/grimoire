@@ -43,7 +43,6 @@ class ItemStore {
         randomItem.name,
         randomItem.quote,
         randomItem.rarity,
-        randomItem.width
       );
       this.addItem(itemToAdd);
       grimoireDb.items.put(itemToAdd);

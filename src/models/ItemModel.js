@@ -5,15 +5,13 @@ export default class ItemModel {
   name = '';
   quote = '';
   rarity = 0;
-  width = 0;
   @observable fresh = true;
 
-  constructor(id, name, quote, rarity, width) {
+  constructor(id, name, quote, rarity) {
     this.id = id;
     this.name = name;
     this.quote = quote;
     this.rarity = rarity;
-    this.width = width;
     this.fresh = true;
   }
 }
