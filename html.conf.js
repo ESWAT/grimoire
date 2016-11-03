@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   inject: false,
   template: require('html-webpack-template'),
   title: 'Grimoire',
