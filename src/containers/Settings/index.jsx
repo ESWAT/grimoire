@@ -12,13 +12,17 @@ import styles from './styles.css';
 )
 class Settings extends Component {
   handleClick = () => {
-    this.props.champStore.resetChampion();
-    this.resetData();
+    if (window.confirm('Are you sure you want to reset Grimoire? All data will be lost.')) {
+      this.props.champStore.resetChampion();
+      this.resetData();
+    }
   }
 
   handleClick2 = () => {
-    this.props.champStore.resetChampionRetainStreak();
-    this.resetData();
+    if (window.confirm('Are you sure you want to reset Grimoire? All data, except your Longest Streak, will be lost.')) {
+      this.props.champStore.resetChampionRetainStreak();
+      this.resetData();
+    }
   }
 
   handleClick3 = () => {
@@ -35,8 +39,8 @@ class Settings extends Component {
   render() {
     return (
       <div className={styles.body}>
-        <button className={styles.button} onClick={this.handleClick}>Reset Settings</button>
-        <button className={styles.button} onClick={this.handleClick2}>Reset Settings but Keep Longest Streak</button>
+        <button className={styles.button} onClick={this.handleClick}>Reset Grimoire</button>
+        <button className={styles.button} onClick={this.handleClick2}>Reset Grimoire but Keep Longest Streak</button>
         <br />
         <button className={styles.button} onClick={this.handleClick3}>Credits</button>
       </div>
