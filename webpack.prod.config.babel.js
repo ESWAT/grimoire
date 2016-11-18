@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import Clean from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import htmlConf from './html.conf';
 
 const src = join(__dirname, 'src');
@@ -53,6 +54,9 @@ export default {
     new OfflinePlugin({
       externals: ['https://fonts.google*'],
     }),
+    new CopyWebpackPlugin([
+      {from: join(src, 'assets'), to: join(__dirname, 'dist')},
+    ]),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -79,7 +83,7 @@ export default {
         loaders: ['style', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'postcss'],
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(jpe?g|png|gif|svg|ico)$/,
         loader: 'file',
         include: src,
       },

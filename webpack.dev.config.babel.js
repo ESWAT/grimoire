@@ -4,6 +4,7 @@ import WebpackNotifierPlugin from 'webpack-notifier';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import HappyPack from 'happypack';
 import DashboardPlugin from 'webpack-dashboard/plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import htmlConf from './html.conf';
 
 const src = join(__dirname, 'src');
@@ -56,6 +57,9 @@ export default {
       minChunks: Infinity,
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
+    new CopyWebpackPlugin([
+      {from: join(src, 'assets'), to: join(__dirname, 'dist')},
+    ]),
     new DashboardPlugin(),
     new WebpackNotifierPlugin(),
   ],
@@ -81,7 +85,7 @@ export default {
         loader: 'happypack/loader?id=css',
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(jpe?g|png|gif|svg|ico)$/,
         loader: 'file',
         include: src,
       },
