@@ -47,7 +47,7 @@ export default {
     }),
     new HappyPack({
       id: 'css',
-      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'postcss'],
+      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path][name]-[local]-[hash:base64:5]', 'postcss'],
       threadPool: happyThreadPool,
     }),
     new HtmlWebpackPlugin(htmlConf),

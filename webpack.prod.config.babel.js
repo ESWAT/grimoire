@@ -80,7 +80,7 @@ export default {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'postcss'],
+        loaders: ['style', 'css?modules&importLoaders=1&localIdentName=[hash:base64:5]', 'postcss'],
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/,
