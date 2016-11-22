@@ -7,6 +7,7 @@ import {Provider} from 'mobx-react';
 import * as stores from './stores';
 import styles from './index.css';
 
+// MobX setting that enforces state modification only through actions
 useStrict(true);
 
 const root = document.getElementById('root');
