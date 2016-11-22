@@ -17,7 +17,11 @@ const renderApp = () => {
 
   render(
     <AppContainer>
-      <Provider {...stores} children={routes} />
+      <Provider {...stores}>
+        <Router history={hashHistory}>
+          {routes}
+        </Router>
+      </Provider>
     </AppContainer>,
     root
   );
