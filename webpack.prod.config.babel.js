@@ -4,6 +4,7 @@ import Clean from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import htmlConf from './html.conf';
 
 const src = join(__dirname, 'src');
@@ -50,6 +51,10 @@ export default {
       minChunks: Infinity,
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
+    new ExtractTextPlugin({
+      filename: '[name].[contentHash].css',
+      allChunks: true,
+    }),
     new OfflinePlugin({
       externals: ['https://fonts.google*'],
     }),
@@ -79,7 +84,10 @@ export default {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css?modules&importLoaders=1&localIdentName=[hash:base64:5]', 'postcss'],
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: ['css?modules&importLoaders=1&localIdentName=[hash:base64:5]', 'postcss']
+        }),
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/,
