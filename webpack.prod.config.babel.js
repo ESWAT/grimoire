@@ -82,7 +82,7 @@ export default {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style',
-          loader: ['css?modules&importLoaders=1&localIdentName=[hash:base64:5]', 'postcss']
+          loader: ['css?modules&importLoaders=1&localIdentName=[hash:base64:5]', 'postcss'],
         }),
       },
       {
