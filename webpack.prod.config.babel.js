@@ -12,7 +12,6 @@ const dist = join(__dirname, 'dist');
 export default {
   entry: {
     app: [
-      'tachyons-colors/src/tachyons-colors.css',
       './src/index',
     ],
     vendor: [

@@ -16,7 +16,6 @@ export default {
   entry: {
     app: [
       'react-hot-loader/patch',
-      'tachyons-colors/src/tachyons-colors.css',
       './src/index',
     ],
     vendor: [
