@@ -35,7 +35,6 @@
     "html-webpack-template": "^5.4.1",
     "mobx-react-devtools": "^4.2.9",
     "offline-plugin": "^3.4.2",
-    "postcss-import": "^8.2.0",
     "postcss-loader": "^1.1.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "style-loader": "^0.13.1",
