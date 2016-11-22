@@ -29,30 +29,29 @@ class ItemStore {
   }
 
   @action addRandomItem() {
-    let randomItem = this.getRandomItem();
-    let isDuplicate = this.findExistingItem(randomItem) !== -1
-      ? true
-      : false;
-    let searchCount = 0;
+    if (this.items.length === itemList.length) {
+      return;
+    }
 
-    while (isDuplicate && searchCount !== itemList.length) {
+    let randomItem = null;
+    let isDuplicate = true;
+
+    while (isDuplicate) {
       randomItem = this.getRandomItem();
       isDuplicate = this.findExistingItem(randomItem) !== -1
         ? true
         : false;
-      searchCount++;
     }
 
-    if (!isDuplicate) {
-      const itemToAdd = new ItemModel(
-        randomItem.id,
-        randomItem.name,
-        randomItem.quote,
-        randomItem.rarity,
-      );
-      this.addItem(itemToAdd);
-      grimoireDb.items.put(itemToAdd);
-    }
+    const itemToAdd = new ItemModel(
+      randomItem.id,
+      randomItem.name,
+      randomItem.quote,
+      randomItem.rarity,
+    );
+
+    this.addItem(itemToAdd);
+    grimoireDb.items.put(itemToAdd);
   }
 
   @action seeItem(item) {
