@@ -5,7 +5,6 @@ import {observer, inject} from 'mobx-react';
 import autosize from 'autosize';
 import questionList from '~/shared/questions';
 import styles from './styles.css';
-import {findIndex} from 'lodash';
 
 const propTypes = {
   existingEntry: PropTypes.bool.isRequired,
@@ -46,7 +45,7 @@ class EntryForm extends Component {
   handleKeyDown = (event) => {
     if (event.keyCode === 13) {
       event.preventDefault();
-      const activeInput = findIndex(this.inputs, (obj) => {
+      const activeInput = this.inputs.findIndex((obj) => {
         return obj === document.activeElement;
       });
       this.inputs[activeInput + 1].focus();

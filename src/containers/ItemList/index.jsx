@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
 import Item from '~/components/Item';
 import ItemModal from '~/components/ItemModal';
-import {find} from 'lodash';
 import styles from './styles.css';
 
 @inject(

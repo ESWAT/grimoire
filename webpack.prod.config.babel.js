@@ -72,10 +72,6 @@ export default {
         test: /\.js$/,
         loader: 'babel',
         include: src,
-        query: {
-          plugins: ['lodash'],
-          presets: ['es2015'],
-        },
       },
       {
         test: /\.jsx?$/,

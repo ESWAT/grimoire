@@ -1,6 +1,5 @@
 import {observable, computed, action} from 'mobx';
 import {grimoireDb} from '~/shared/grimoireDb';
-import {find, findIndex} from 'lodash';
 import ItemModel from '~/models/ItemModel';
 import itemList from '~/shared/items';
 
@@ -19,7 +18,10 @@ class ItemStore {
   }
 
   @action updateItemsChanged() {
-    this.itemsChanged = findIndex((this.items), {fresh: true}) !== -1 ? true : false;
+    this.itemsChanged =
+      this.items.findIndex((item) => item.fresh === true) !== -1
+      ? true
+      : false;
   }
 
   @action populateItems(items) {
@@ -28,12 +30,16 @@ class ItemStore {
 
   @action addRandomItem() {
     let randomItem = this.getRandomItem();
-    let isDuplicate = this.checkDuplicate(randomItem);
+    let isDuplicate = this.findExistingItem(randomItem) !== -1
+      ? true
+      : false;
     let searchCount = 0;
 
     while (isDuplicate && searchCount !== itemList.length) {
       randomItem = this.getRandomItem();
-      isDuplicate = this.checkDuplicate(randomItem);
+      isDuplicate = this.findExistingItem(randomItem) !== -1
+        ? true
+        : false;
       searchCount++;
     }
 
@@ -50,10 +56,10 @@ class ItemStore {
   }
 
   @action seeItem(item) {
-    const foundItem = findIndex(this.items, {id: item.id});
-    if (foundItem !== -1) {
-      this.items[foundItem].fresh = false;
-      grimoireDb.items.update(this.items[foundItem].id, this.items[foundItem]);
+    const foundItemIndex = this.findExistingItem(item);
+    if (foundItemIndex !== -1) {
+      this.items[foundItemIndex].fresh = false;
+      grimoireDb.items.update(this.items[foundItemIndex].id, this.items[foundItemIndex]);
       this.updateItemsChanged();
     }
   }
@@ -69,7 +75,7 @@ class ItemStore {
   }
 
   ownsItem(id) {
-    return find(this.items, (item) => {
+    return this.items.find((item) => {
       return item.id === id;
     });
   }
@@ -78,8 +84,8 @@ class ItemStore {
     return itemList[Math.floor(Math.random() * itemList.length)];
   }
 
-  checkDuplicate(item) {
-    return findIndex(this.items, {id: item.id}) !== -1 ? true : false;
+  findExistingItem(item) {
+    return this.items.findIndex((itemInDb) => itemInDb.id === item.id);
   }
 }
 
