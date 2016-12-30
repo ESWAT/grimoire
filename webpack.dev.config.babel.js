@@ -21,15 +21,7 @@ export default {
       'react-hot-loader/patch',
       './src/index',
     ],
-    vendor: [
-      'dexie',
-      'history',
-      'mobx',
-      'mobx-react',
-      'react',
-      'react-router',
-      'react-document-title',
-    ],
+    vendor: Object.keys(require('./package.json').dependencies),
   },
   output: {
     path: join(__dirname, 'dist'),

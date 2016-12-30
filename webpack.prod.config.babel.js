@@ -15,15 +15,7 @@ export default {
     app: [
       './src/index',
     ],
-    vendor: [
-      'dexie',
-      'history',
-      'mobx',
-      'mobx-react',
-      'react',
-      'react-router',
-      'react-document-title',
-    ],
+    vendor: Object.keys(require('./package.json').dependencies),
   },
   output: {
     path: dist,
@@ -33,7 +25,6 @@ export default {
   plugins: [
     new Clean(['dist'], {verbose: false}),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new HtmlWebpackPlugin(htmlConf),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -70,24 +61,24 @@ export default {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: src,
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: src,
       },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style',
-          loader: ['css?modules&importLoaders=1&localIdentName=[hash:base64:5]', 'postcss'],
+          fallbackLoader: 'style-loader',
+          loader: ['css-loader?modules&importLoaders=1&localIdentName=[hash:base64:5]', 'postcss-loader'],
         }),
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/,
-        loader: 'file',
+        loader: 'file-loader',
         include: src,
       },
     ],
