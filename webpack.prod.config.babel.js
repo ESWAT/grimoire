@@ -24,7 +24,6 @@ export default {
   },
   plugins: [
     new Clean(['dist'], {verbose: false}),
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin(htmlConf),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -60,12 +59,7 @@ export default {
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: src,
-      },
-      {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         include: src,
       },

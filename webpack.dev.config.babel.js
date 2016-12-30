@@ -65,12 +65,7 @@ export default {
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        loader: 'happypack/loader?id=jsx',
-        include: src,
-      },
-      {
-        test: /\.jsx$/,
+        test: /\.(js|jsx)$/,
         loader: 'happypack/loader?id=jsx',
         include: src,
       },
