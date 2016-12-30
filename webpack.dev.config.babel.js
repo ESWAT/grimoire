@@ -13,6 +13,9 @@ const happyThreadPool = HappyPack.ThreadPool({size: 6});
 
 export default {
   devtool: 'source-map',
+  performance: {
+    hints: false,
+  },
   entry: {
     app: [
       'react-hot-loader/patch',
@@ -41,12 +44,12 @@ export default {
     }),
     new HappyPack({
       id: 'jsx',
-      loaders: ['babel?cacheDirectory'],
+      loaders: ['babel-loader?cacheDirectory'],
       threadPool: happyThreadPool,
     }),
     new HappyPack({
       id: 'css',
-      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path][name]-[local]-[hash:base64:5]', 'postcss'],
+      loaders: ['style-loader?sourceMap', 'css-loader?modules&importLoaders=1&localIdentName=[path][name]-[local]-[hash:base64:5]', 'postcss-loader'],
       threadPool: happyThreadPool,
     }),
     new HtmlWebpackPlugin(htmlConf),
@@ -85,7 +88,7 @@ export default {
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/,
-        loader: 'file',
+        loader: 'file-loader',
         include: src,
       },
     ],
