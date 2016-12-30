@@ -12,7 +12,6 @@ const propTypes = {
 
 @inject(
   'entryStore',
-  'itemStore',
   'champStore'
 ) @observer
 class EntryForm extends Component {
@@ -54,7 +53,6 @@ class EntryForm extends Component {
 
   handleChange = (event) => {
     if (this.fresh) {
-      this.props.itemStore.addRandomItem();
       this.unfresh();
     }
 

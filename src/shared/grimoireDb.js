@@ -11,6 +11,9 @@ grimoireDb.version(2).stores({
   items: 'id',
   champ: 'key',
 });
+grimoireDb.version(2).stores({
+  items: null,
+});
 grimoireDb.on('populate', () => {
   grimoireDb.champ.add({key: 'lastEntry', value: null});
   grimoireDb.champ.add({key: 'currentStreak', value: 0});

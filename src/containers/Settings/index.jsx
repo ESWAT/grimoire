@@ -7,7 +7,6 @@ import styles from './styles.css';
 @inject(
   'entryStore',
   'champStore',
-  'itemStore',
   'uiStore',
 )
 class Settings extends Component {
@@ -32,7 +31,6 @@ class Settings extends Component {
 
   resetData() {
     this.props.entryStore.resetEntries();
-    this.props.itemStore.resetItems();
     hashHistory.push('/');
   }
 
