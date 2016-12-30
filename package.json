@@ -48,7 +48,7 @@
     "dexie": "^1.5.1",
     "fecha": "^2.3.0",
     "mobx": "^2.7.0",
-    "mobx-react": "^4.0.4",
+    "mobx-react": "^3.5.9",
     "react": "^15.4.1",
     "react-addons-css-transition-group": "^15.4.1",
     "react-document-title": "^2.0.2",
