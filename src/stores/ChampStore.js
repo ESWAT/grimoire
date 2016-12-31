@@ -45,7 +45,10 @@ class ChampStore {
   updateCurrentStreak() {
     if (!this.lastEntry) {
       this.currentStreak++;
-      this.longestStreak++;
+
+      if (this.longestStreak === 0) {
+        this.longestStreak++;
+      }
     } else {
       const today = new Date();
       const yesterday = new Date(today.setDate(today.getDate() - 1)).toDateString();
@@ -53,14 +56,16 @@ class ChampStore {
       const validStreak = lastDate === yesterday;
       const stillToday = lastDate === new Date().toDateString();
 
-      if (validStreak) {
+      if (stillToday) {
+        return;
+      } else if (validStreak) {
         this.currentStreak++;
-        this.longestStreak++;
-      } else if (stillToday) {
-        this.currentStreak = this.longestStreak = this.currentStreak;
+
+        if (this.longestStreak < this.currentStreak) {
+          this.longestStreak++;
+        }
       } else {
         this.streak = 0;
-        this.longestStreak = 0;
       }
     }
 
