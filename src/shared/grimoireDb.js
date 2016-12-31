@@ -11,7 +11,7 @@ grimoireDb.version(2).stores({
   items: 'id',
   champ: 'key',
 });
-grimoireDb.version(2).stores({
+grimoireDb.version(3).stores({
   items: null,
 });
 grimoireDb.on('populate', () => {
