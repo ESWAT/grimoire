@@ -13,20 +13,15 @@ const happyThreadPool = HappyPack.ThreadPool({size: 6});
 
 export default {
   devtool: 'source-map',
+  performance: {
+    hints: false,
+  },
   entry: {
     app: [
       'react-hot-loader/patch',
       './src/index',
     ],
-    vendor: [
-      'dexie',
-      'history',
-      'mobx',
-      'mobx-react',
-      'react',
-      'react-router',
-      'react-document-title',
-    ],
+    vendor: Object.keys(require('./package.json').dependencies),
   },
   output: {
     path: join(__dirname, 'dist'),
@@ -41,12 +36,12 @@ export default {
     }),
     new HappyPack({
       id: 'jsx',
-      loaders: ['babel?cacheDirectory'],
+      loaders: ['babel-loader?cacheDirectory'],
       threadPool: happyThreadPool,
     }),
     new HappyPack({
       id: 'css',
-      loaders: ['style?sourceMap', 'css?modules&importLoaders=1&localIdentName=[path][name]-[local]-[hash:base64:5]', 'postcss'],
+      loaders: ['style-loader?sourceMap', 'css-loader?modules&importLoaders=1&localIdentName=[path][name]-[local]-[hash:base64:5]', 'postcss-loader'],
       threadPool: happyThreadPool,
     }),
     new HtmlWebpackPlugin(htmlConf),
@@ -70,12 +65,7 @@ export default {
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        loader: 'happypack/loader?id=jsx',
-        include: src,
-      },
-      {
-        test: /\.jsx$/,
+        test: /\.(js|jsx)$/,
         loader: 'happypack/loader?id=jsx',
         include: src,
       },
@@ -85,7 +75,7 @@ export default {
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/,
-        loader: 'file',
+        loader: 'file-loader',
         include: src,
       },
     ],

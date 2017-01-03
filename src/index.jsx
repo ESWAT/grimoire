@@ -36,5 +36,4 @@ if (module.hot) {
   });
 }
 
-import {install} from 'offline-plugin/runtime';
-install();
+require('offline-plugin/runtime').install();

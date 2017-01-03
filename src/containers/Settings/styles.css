@@ -1,3 +1,6 @@
+@import '../../styles/colors.css';
+@import '../../styles/fonts.css';
+
 .body {
   margin: 12px;
 }
@@ -12,7 +15,7 @@
   border-radius: 1px;
   background: var(--near-black);
   color: var(--light-red);
-  font: 16px/1.5 asul, arials, sans-serif;
+  font: 16px/1.5 var(--font-stack);
   cursor: pointer;
   text-decoration: none;
   text-align: center;

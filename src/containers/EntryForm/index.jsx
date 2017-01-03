@@ -12,7 +12,6 @@ const propTypes = {
 
 @inject(
   'entryStore',
-  'itemStore',
   'champStore'
 ) @observer
 class EntryForm extends Component {
@@ -45,7 +44,7 @@ class EntryForm extends Component {
   handleKeyDown = (event) => {
     if (event.keyCode === 13) {
       event.preventDefault();
-      const activeInput = this.inputs.findIndex((obj) => {
+      const activeInput = [...this.inputs].findIndex((obj) => {
         return obj === document.activeElement;
       });
       this.inputs[activeInput + 1].focus();
@@ -54,7 +53,6 @@ class EntryForm extends Component {
 
   handleChange = (event) => {
     if (this.fresh) {
-      this.props.itemStore.addRandomItem();
       this.unfresh();
     }
 

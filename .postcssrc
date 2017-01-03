@@ -1,5 +1,8 @@
 {
   plugins: {
-    autoprefixer: {}
+    "autoprefixer": {},
+    "postcss-import": {},
+    "postcss-css-variables": {},
+    "postcss-color-function": {}
   }
 }

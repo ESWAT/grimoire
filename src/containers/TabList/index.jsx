@@ -5,9 +5,7 @@ import LinkTab from '~/components/LinkTab';
 import IndexTab from '~/components/IndexTab';
 import styles from './styles.css';
 
-@inject(
-  'itemStore'
-) @withRouter @observer
+@withRouter @observer
 class TabList extends Component {
   render() {
     return (
@@ -20,7 +18,7 @@ class TabList extends Component {
             <IndexTab to="/" name="Grimoire" />
           </li>
           <li className={styles.li}>
-            <LinkTab to="/journey" name="Journey" highlight={this.props.itemStore.itemsChanged} />
+            <LinkTab to="/journey" name="Journey" />
           </li>
         </ul>
       </div>

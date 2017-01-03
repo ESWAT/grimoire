@@ -1,3 +1,6 @@
+@import '../../styles/colors.css';
+@import '../../styles/fonts.css';
+
 .section {
   display: block;
   color: var(--gray);
@@ -14,7 +17,7 @@
   border-bottom: 1px solid var(--gray);;
   background: var(--black);
   color: var(--near-white);
-  font: 16px/1.5 asul, arials, sans-serif;
+  font: 16px/1.5 var(--font-stack);
   -moz-appearance: none;
   appearance: none;
   outline: 0;
@@ -35,7 +38,7 @@
   border-radius: 1px;
   background: var(--near-black);
   color: var(--light-red);
-  font: 16px/1.5 asul, arials, sans-serif;
+  font: 16px/1.5 var(--font-stack);
   cursor: pointer;
   text-decoration: none;
   text-align: center;
@@ -47,7 +50,7 @@
 }
 
 .inputHeading {
-  font: 16px asul, georgia, serif;
+  font: 16px var(--font-stack);
   text-align: center;
   display: block;
   margin: 0 0 24px;

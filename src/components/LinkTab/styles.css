@@ -1,9 +1,12 @@
+@import '../../styles/colors.css';
+@import '../../styles/fonts.css';
+
 .button {
   display: block;
   padding: 12px 4px;
   border-top: 1px solid var(--dark-gray);
   color: var(--gray);
-  font: 16px/1.5 asul, arials, sans-serif;
+  font: 16px/1.5 var(--font-stack);
   cursor: pointer;
   text-decoration: none;
   text-align: center;
